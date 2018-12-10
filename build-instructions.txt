@@ -1,0 +1,5 @@
+On Mac:
+- if you don't already have it, install homebrew 
+- install gradle: brew install gradle
+- install mongodb: brew install mongodb
+- run: brew services start mongodb

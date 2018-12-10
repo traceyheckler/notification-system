@@ -1,0 +1,8 @@
+##### Create new Store Preference #####
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"storeId\" : \"09123\",  \"notificationType\" : \"SMS\" }" http://localhost:8080/storePreferences
+
+##### View Store Preferences #####
+curl http://localhost:8080/storePreferences
+
+##### Find Store Preference By Store Id #####
+curl http://localhost:8080/storePreferences/search/findByStoreId?storeId=09123
