@@ -15,7 +15,7 @@ public class MessageController {
 	MessageService messageService;
 
 	@PostMapping("/message")
-	public void newEmployee(@RequestBody MessageRequest message) {
+	public void sendMessage(@RequestBody MessageRequest message) {
 		messageService.sendMessage();
 	}
 }
