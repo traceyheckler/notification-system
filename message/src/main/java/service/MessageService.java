@@ -1,12 +1,9 @@
 package service;
 
-import model.Preference;
+import model.Message;
+import model.Order;
 
 public interface MessageService {
 
-	void hearMessage();
-	
-	Preference getPreference(String storeId);
-	
-	void sendMessage();
+	Message sendMessage(Order order);
 }

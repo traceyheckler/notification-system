@@ -1,25 +1,37 @@
 package service;
 
+import model.Message;
+import model.Order;
 import model.Preference;
 
 public class MessageServiceImpl implements MessageService {
 
 	@Override
-	public void hearMessage() {
-		// TODO Auto-generated method stub
-
+	public Message sendMessage(Order order) {
+		Message message = getOrderMessage(order.getOrderId());
+		Preference preference = getPreference(order.getStoreId());
+		
+		message.setSendType(preference.getNotificationType());
+		message.setSendAddress(preference.getNotificationAddress());
+		
+		return message;
 	}
 
-	@Override
-	public Preference getPreference(String storeId) {
-		// TODO Auto-generated method stub
-		return null;
+	protected Preference getPreference(String storeId) {
+		// TODO: change this to call preference service
+		Preference preference = new Preference();
+		preference.setNotificationType("email");
+		preference.setNotificationAddress("tracey.heckler@infor.com");
+		return preference;
 	}
 
-	@Override
-	public void sendMessage() {
-		// TODO Auto-generated method stub
-
+	protected Message getOrderMessage(String orderId) {
+		Message message = new Message();
+		
+		String messageBody = "Order " + orderId + " has been fulfilled!";
+		message.setMessageBody(messageBody);
+		
+		return message;
 	}
 
 }

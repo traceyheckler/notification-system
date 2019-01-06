@@ -6,3 +6,6 @@ curl http://localhost:8080/storePreferences
 
 ##### Find Store Preference By Store Id #####
 curl http://localhost:8080/storePreferences/search/findByStoreId?storeId=09123
+
+##### Order Fulfillment Message #####
+curl -i -X POST -H "Content-Type:application/json" -d "{  \"orderId\" : \"987654321\",  \"storeId\" : \"09123\" }" http://localhost:8081/messages/order

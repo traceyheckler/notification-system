@@ -1,10 +1,19 @@
-On Mac:
+On Mac, setup environment:
 - if you don't already have it, install homebrew 
 - install gradle: brew install gradle
 - install mongodb: brew install mongodb
 - run: brew services start mongodb
-- cd into 'preference'
-- run: gradle clean build
-- kill existing processes, run: lsof -i :8080 | kill -9 $(awk '{print $2}')
-- start 'preference' app, run: java -jar build/libs/tmh-preference-0.1.0.jar
+
+- kill existing processes on ports we will be using: 
+lsof -i :8080 | kill -9 $(awk '{print $2}')
+lsof -i :8081 | kill -9 $(awk '{print $2}')
+
+in each application:
+
+- run: 
+gradle clean build
+
+- start apps: 
+java -jar build/libs/tmh-preference-0.1.0.jar --server.port=8080
+java -jar build/libs/tmh-message-0.1.0.jar --server.port=8081
 
